@@ -1,0 +1,27 @@
+name: Main
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.8
+    - name: Retrieve the Cloud ID
+      id: get-cloud_id
+      run: echo "::set-env name=CLOUD_ID::${{ secrets.CLOUD_ID }}"
+    - name: Retrieve the ES_PASSWORD
+      id: get-es_password
+      run: echo "::set-env name=ES_PASSWORD::${{ secrets.ES_PASSWORD }}"
+    - name: Retrieve the USERNAME
+      id: get-username
+      run: echo "::set-env name=USERNAME::${{ secrets.ES_USERNAME }}"
+    - name: Run the script
+      run: python myscript.py
