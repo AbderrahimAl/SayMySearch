@@ -16,7 +16,7 @@ jobs:
         python-version: 3.8
     - name: Retrieve the Cloud ID
       id: get-cloud_id
-      run: echo "::set-env name=CLOUD_ID::${{ secrets.CLOUD_ID }}"
+      run: echo "::set-env name=CLOUD_ID::${{ secrets.CLOUD_ID}}"
     - name: Retrieve the ES_PASSWORD
       id: get-es_password
       run: echo "::set-env name=ES_PASSWORD::${{ secrets.ES_PASSWORD }}"

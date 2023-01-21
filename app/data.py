@@ -1,0 +1,27 @@
+
+data = [
+    {'club_name': 'Real Madrid', 'country': 'Spain', 'champions': 34},
+    {'club_name': 'Barcelona', 'country': 'Spain', 'champions': 26},
+    {'club_name': 'Manchester United', 'country': 'England', 'champions': 20},
+    {'club_name': 'Bayern Munich', 'country': 'Germany', 'champions': 30},
+    {'club_name': 'Al Ahly', 'country': 'Egypt', 'champions': 44},
+    {'club_name': 'Juventus', 'country': 'Italy', 'champions': 35},
+    {'club_name': 'Liverpool', 'country': 'England', 'champions': 19},
+    {'club_name': 'Paris Saint-Germain', 'country': 'France', 'champions': 11},
+    {'club_name': 'TP Mazembe', 'country': 'DR Congo', 'champions': 7},
+    {'club_name': 'Espérance Sportive de Tunis', 'country': 'Tunisia', 'champions': 23},
+    {'club_name': 'Zamalek', 'country': 'Egypt', 'champions': 34},
+    {'club_name': 'ASEC Mimosas', 'country': "Côte d'Ivoire", 'champions': 22},
+    {'club_name': 'Al-Hilal', 'country': 'Sudan', 'champions': 15},
+    {'club_name': 'AS Vita Club', 'country': 'DR Congo', 'champions': 7},
+    {'club_name': 'Wydad Casablanca', 'country': 'Morocco', 'champions': 14},
+    {'club_name': 'Club Africain', 'country': 'Tunisia', 'champions': 12},
+    {'club_name': 'Al-Hilal', 'country': 'Saudi Arabia', 'champions': 14},
+    {'club_name': 'Persepolis', 'country': 'Iran', 'champions': 9},
+    {'club_name': "Johor Darul Ta'zim", 'country': 'Malaysia', 'champions': 8},
+    {'club_name': 'Pohang Steelers', 'country': 'South Korea', 'champions': 3},
+    {'club_name': 'Urawa Red Diamonds', 'country': 'Japan', 'champions': 3},
+    {'club_name': 'Al-Ittihad', 'country': 'Saudi Arabia', 'champions': 8},
+    {'club_name': 'Al-Sadd', 'country': 'Qatar', 'champions': 16},
+    {'club_name': 'Brisbane Roar', 'country': 'Australia', 'champions': 3}
+]
