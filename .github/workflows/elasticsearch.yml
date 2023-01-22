@@ -27,6 +27,6 @@ jobs:
       run: pip install -r requirements.txt
     - name: Start server
       run: |
-        uvicorn app.api:app --host 0.0.0.0 --port 8000
+        uvicorn app.api:app --host 0.0.0.0 --port 8000 &
     - name: Run Tests
       run: pytest -v
