@@ -1,6 +1,14 @@
-import os
+from pydantic import BaseSettings
 
-ES_CLOUD_ID = os.environ.get("ES_CLOUD_ID")
-ES_USERNAME = os.environ.get("ES_USERNAME")
-ES_PASSWORD = os.environ.get("ES_PASSWORD")
+
+class Settings(BaseSettings):
+    es_cloud_id: str
+    es_username: str
+    es_password: str
+
+    class Config:
+        env_file = ".env"
+
+settings = Settings()
+
 

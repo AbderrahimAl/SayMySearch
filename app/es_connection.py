@@ -1,7 +1,10 @@
 from elasticsearch import Elasticsearch
-import config
+from .config import settings
+
 
 client = Elasticsearch(
-    cloud_id=config.CLOUD_ID,
-    basic_auth=(config.ES_USERNAME, config.ES_PASSWORD) 
+    cloud_id=settings.es_cloud_id,
+    basic_auth=(settings.es_username, settings.es_password) 
 )
+
+print("You Know, for Search" == client.info()['tagline'])

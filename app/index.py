@@ -1,6 +1,7 @@
 from es_connection import client
 from elasticsearch import helpers
-from data import data
+from .data import data
+
 
 settings = {
     'number_of_shards': 2,
@@ -11,7 +12,7 @@ mappings = {
         'club_name': {'type': 'text'}, 
         'country': {'type': 'text'}, 
         'champions': {'type': 'integer'}
-    }
+        }
     }
     
 client.indices.create(index='clubs_index', settings=settings, mappings=mappings, ignore=400)
