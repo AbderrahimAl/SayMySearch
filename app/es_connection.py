@@ -6,5 +6,5 @@ client = Elasticsearch(
     cloud_id=settings.es_cloud_id,
     basic_auth=(settings.es_username, settings.es_password) 
 )
+                
 
-print("You Know, for Search" == client.info()['tagline'])

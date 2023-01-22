@@ -3,11 +3,11 @@ from elasticsearch import helpers
 from .data import data
 
 
-settings = {
+index_settings = {
     'number_of_shards': 2,
     'number_of_replicas': 1
     }
-mappings = {
+index_mappings = {
     'properties':{
         'club_name': {'type': 'text'}, 
         'country': {'type': 'text'}, 
@@ -15,6 +15,6 @@ mappings = {
         }
     }
     
-client.indices.create(index='clubs_index', settings=settings, mappings=mappings, ignore=400)
+client.indices.create(index='clubs_index', settings=index_settings, mappings=index_mappings, ignore=400)
 
 helpers.bulk(client, data, index='clubs_index')
