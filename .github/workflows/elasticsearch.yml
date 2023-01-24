@@ -1,4 +1,4 @@
-name: Build and Deploy
+name: Test, Build and Push to Docker Hub 
 
 on: 
   push:
@@ -9,7 +9,7 @@ on:
       - main
 
 jobs:
-  build:
+  tests:
     
     environment:
       name: testing
@@ -39,30 +39,26 @@ jobs:
 
   deploy:
 
+    environment:
+      name: production
+
     env:
       ES_CLOUD_ID: ${{secrets.ES_CLOUD_ID}}
       ES_USERNAME: ${{secrets.ES_USERNAME}}
       ES_PASSWORD: ${{secrets.ES_PASSWORD}}
-      VERCEL_TOKEN: ${{secrets.VERCEL_TOKEN}}
+      DOCKER_USERNAME: ${{secrets.DOCKER_USERNAME}}
+      DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
 
     runs-on: ubuntu-latest
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    needs: tests
+    
     steps:
     - name: Checkout
       uses: actions/checkout@v2
-    - name: Set up Python 3.10
-      uses: actions/setup-python@v2
-      with:
-        python-version: "3.10"
-        architecture: "x64"
-    - name: Update pip
-      run: python -m pip install --upgrade pip
-    - name: install all dependencies
-      run: pip install -r requirements.txt
-    - name: Start server
-      run: |
-        uvicorn app.api:app --host 0.0.0.0 --port 8000 &
-    - name: Deploy to vercel
-      run: vercel --token $VERCEL_TOKEN
+    - name: Build Docker image
+      run: docker build . --file Dockerfile -t $DOCKER_USERNAME/es_app:${{github.run_id}}
+    - name: Push to Docker Hub
+      run: docker push $DOCKER_USERNAME/es_app:${{github.run_id}}
     
     

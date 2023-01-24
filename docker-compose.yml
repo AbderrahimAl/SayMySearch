@@ -1,0 +1,10 @@
+version: "1.0"
+services:
+  say_my_search:
+    container_name: say_my_search
+    image: es_app:01
+    env_file:
+      - .env
+    ports:
+      - 8000:8000
+    
