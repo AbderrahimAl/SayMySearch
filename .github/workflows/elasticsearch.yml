@@ -43,6 +43,7 @@ jobs:
       ES_CLOUD_ID: ${{secrets.ES_CLOUD_ID}}
       ES_USERNAME: ${{secrets.ES_USERNAME}}
       ES_PASSWORD: ${{secrets.ES_PASSWORD}}
+      VERCEL_TOKEN: ${{secrets.VERCEL_TOKEN}}
 
     runs-on: ubuntu-latest
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
@@ -62,6 +63,6 @@ jobs:
       run: |
         uvicorn app.api:app --host 0.0.0.0 --port 8000 &
     - name: Deploy to vercel
-      run: vercel --prod
+      run: vercel --token $VERCEL_TOKEN
     
     
