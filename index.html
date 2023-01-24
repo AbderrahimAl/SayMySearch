@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <title>Say My Search🧪</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    </head>
+    <body>
+        <p style="text-align:center;">
+            <img src="/static/saymysearch.png" alt="saymysearch"
+                width="1000",
+                height="350"/>
+        </p>
+        <br/>
+        <p style="text-align:center;">
+            <input class="search-box">
+            <ul class="results"></ul>
+        </p>
+
+        <script>
+            $(document).ready(function(){
+                let debounce;   
+                
+                $('.search-box').on('keydown', function (e){
+
+                    debounce = setTimeout(()=> {
+                        getAutocomplete();
+                    }, 400)
+                })
+            })
+
+            function getAutocomplete(){
+                const query = $('.search-box').val();
+                fetch(`http://localhost:8000/search?query=${encodeURIComponent(query)}`)
+                    .then((resp) => resp.json())
+                    .then((data) => {
+                        $('.results').empty();
+                        for (let i = 0; i < data.length; i++){
+                            $('.results').append(`<p align="center"> ${data[i]}</p>`)
+                            
+                        }
+                    })
+            }
+        </script>
+       
+    </body>
+</html>
