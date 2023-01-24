@@ -30,7 +30,7 @@
 
             function getAutocomplete(){
                 const query = $('.search-box').val();
-                fetch(`http://localhost:8000/search?query=${encodeURIComponent(query)}`)
+                fetch(`/search?query=${encodeURIComponent(query)}`)
                     .then((resp) => resp.json())
                     .then((data) => {
                         $('.results').empty();
