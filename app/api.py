@@ -21,19 +21,19 @@ def home(request: Request):
 @app.get("/search", status_code=status.HTTP_200_OK)
 def search(query: str):
 
-    search_params = {
-        "query": {
-            "multi_match": {
+    search_params =  { 
+            "query": {
+                "multi_match": {
                 "query": query,
-                "type": "bool_prefix",
+                "operator": "and", 
+                "type": "bool_prefix", 
+                "fuzziness": "auto", 
                 "fields": [
                     "club_name"
                     ]
-                    }
                 }
-             }
-        
+            }
+            }
+    
     response = client.search(index="clubs_index", **search_params)
-    a = [res["_source"]["club_name"] for res in response["hits"]["hits"]]
-    print(a)
     return [res["_source"]["club_name"] for res in response["hits"]["hits"]]
