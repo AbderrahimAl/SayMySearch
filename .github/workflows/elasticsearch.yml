@@ -62,8 +62,8 @@ jobs:
         username: ${{secrets.DOCKER_USERNAME}}
         password: ${{secrets.DOCKER_PASSWORD}}
     - name: Build Docker image
-      run: docker build . --file Dockerfile -t $DOCKER_USERNAME/es_app:${{github.run_id}}
+      run: docker build . --file Dockerfile -t $DOCKER_USERNAME/es_app:latest
     - name: Push to Docker Hub
-      run: docker push $DOCKER_USERNAME/es_app:${{github.run_id}}
+      run: docker push $DOCKER_USERNAME/es_app:latest
     
     
