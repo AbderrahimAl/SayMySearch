@@ -45,3 +45,11 @@ INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
 3) Check it
 
 Open your browser at http://127.0.0.1:8000/
+
+
+## Show Your Support
+If you find this project useful, please consider giving it a [![Star on GitHub][github-star-badge]][github-star] to show your support and help others discover it.
+
+[github-star-badge]: https://img.shields.io/github/stars/AbderrahimAl/SayMySearch.svg?style=social
+[github-star]: https://github.com/AbderrahimAl/SayMySearch/stargazers
+
