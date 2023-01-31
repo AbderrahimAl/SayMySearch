@@ -21,12 +21,12 @@ $ pip install -r requirements
 
 You will need to create 3 environement varaibles to establish the connection with elasticsearch.
 
-The easiest way is to create .env file and add the environement varaibles to it: 
+The easiest way is to create `.env` file and add the environement varaibles to it: 
 
 ````.env
-ES_CLOUD_ID: <cloud id>
-ES_USERNAME: elastic
-ES_PASSWORD: <elasticsearch deployement password>
+ES_CLOUD_ID =  <cloud id>
+ES_USERNAME = elastic
+ES_PASSWORD = <elasticsearch deployement password>
 ````
 
 3) Run it
